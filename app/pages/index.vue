@@ -142,7 +142,12 @@ const methodLabels: Record<string, string> = {
               <div class="text-xs text-gray-400 uppercase tracking-widest">Ignite your future</div>
             </div>
           </div>
-          <div class="text-xs text-gray-400">Blantyre · Lilongwe · Mzuzu · Karonga</div>
+          <div class="text-xs text-gray-400">
+            <div class="flex gap-2">
+              <UColorModeSwitch />
+            </div>
+            <p>Blantyre · Lilongwe · Mzuzu · Karonga</p>
+          </div>
         </div>
 
         <!-- Hero section -->
@@ -358,19 +363,18 @@ const methodLabels: Record<string, string> = {
                       <div
                         class="w-10 h-6 rounded flex items-center justify-center text-[10px] font-medium shrink-0"
                         :class="{
-                          'bg-red-600 text-red-50': m === 'mpamba',
-                          'bg-red-500 text-white': m === 'airtel',
-                          'bg-blue-800 text-blue-100': m === 'visa',
+                          'bg-red-600 text-red-50': m === 'Swift Capital',
+                          'bg-red-500 text-white': m === 'VISA',
                         }"
                       >
-                        {{ m === 'mpamba' ? 'TNM' : m === 'airtel' ? 'AM' : 'VISA' }}
+                        {{ m === 'Swift Capital' ? 'Swift Capital' : m === 'VISA' ? 'VISA' : 'VISA' }}
                       </div>
                       <div class="flex-1">
                         <div class="text-sm font-medium text-gray-800 dark:text-gray-200">
-                          {{ m === 'mpamba' ? 'Mpamba' : m === 'airtel' ? 'Airtel Money' : 'Visa card' }}
+                          {{ m === 'Swift Capital' ? 'Swift Capital' : m === 'VISA' ? 'VISA' : 'VISA' }}
                         </div>
                         <div class="text-[11px] text-gray-400">
-                          {{ m === 'mpamba' ? 'TNM mobile money' : m === 'airtel' ? 'Airtel mobile money' : 'Debit or credit card' }}
+                            {{ m === 'Swift Capital' ? 'Swift Capital' : m === 'VISA' ? 'VISA' : 'VISA' }}
                         </div>
                       </div>
                       <div
@@ -414,7 +418,7 @@ const methodLabels: Record<string, string> = {
                 </div>
 
                 <!-- Visa card form -->
-                <template v-if="currentMethod === 'visa'">
+                <template>
                   <div class="space-y-3">
                     <div>
                       <label class="text-xs text-gray-400 block mb-1">Card number</label>
@@ -440,17 +444,6 @@ const methodLabels: Record<string, string> = {
                       <label class="text-xs text-gray-400 block mb-1">Name on card</label>
                       <input v-model="cardName" placeholder="Full name" class="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:border-violet-500" />
                     </div>
-                  </div>
-                </template>
-
-                <!-- Mobile money form -->
-                <template v-else>
-                  <div>
-                    <label class="text-xs text-gray-400 block mb-1">{{ methodLabels[currentMethod!] }} number</label>
-                    <input v-model="mobileNumber" placeholder="+265 9XX XXX XXX" class="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:border-violet-500" />
-                  </div>
-                  <div class="bg-gray-50 dark:bg-gray-800 rounded-lg px-4 py-3 text-xs text-gray-500 leading-relaxed">
-                    After clicking confirm, you will receive a payment prompt on your phone. Enter your PIN to complete the transaction.
                   </div>
                 </template>
 
@@ -485,7 +478,7 @@ const methodLabels: Record<string, string> = {
 
             </div>
           </div>
-          
+
         </Transition>
       </Teleport>
 
