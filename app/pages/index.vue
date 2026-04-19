@@ -142,7 +142,7 @@ const methodLabels: Record<string, string> = {
               <div class="text-xs text-gray-400 uppercase tracking-widest">Ignite your future</div>
             </div>
           </div>
-          <div class="flex text-xs text-gray-400 gap-4">
+          <div class="flex text-xs items-center text-gray-400 gap-4">
             <div class="flex gap-2">
               <UColorModeSwitch />
             </div>
