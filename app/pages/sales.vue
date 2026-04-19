@@ -61,10 +61,9 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
       <div class="p-6 space-y-6">
 
         <!-- Header -->
-        <div class="flex items-center justify-between flex-wrap gap-4">
+        <div class="flex items-center justify-between gap-4">
           <div>
-            <div class="text-xl font-semibold text-gray-900 dark:text-white">OTG 4 U Solar Systems</div>
-            <div class="text-xs text-gray-400">Simple. Reliable. Off-grid power for Malawi.</div>
+            <img src="/logo.jpg" height="170px" width="170px"/>
           </div>
 
           <a
