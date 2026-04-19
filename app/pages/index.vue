@@ -127,23 +127,6 @@ const methodLabels: Record<string, string> = {
 
 <template>
   <UDashboardPanel id="home">
-    <template #header>
-      <UDashboardNavbar title="Solar Store" :ui="{ right: 'gap-3' }">
-        <template #leading>
-          <UDashboardSidebarCollapse />
-        </template>
-        <template #right>
-          <UTooltip text="Notifications" :shortcuts="['N']">
-            <UButton color="neutral" variant="ghost" square @click="isNotificationsSlideoverOpen = true">
-              <UChip color="error" inset>
-                <UIcon name="i-lucide-bell" class="size-5 shrink-0" />
-              </UChip>
-            </UButton>
-          </UTooltip>
-        </template>
-      </UDashboardNavbar>
-    </template>
-
     <template #body>
       <div class="p-6 space-y-6">
 
@@ -154,6 +137,7 @@ const methodLabels: Record<string, string> = {
               S
             </div>
             <div>
+              <UToggle/>
               <div class="text-base font-medium text-gray-900 dark:text-white">OTG 4 U</div>
               <div class="text-xs text-gray-400 uppercase tracking-widest">Ignite your future</div>
             </div>
@@ -355,7 +339,7 @@ const methodLabels: Record<string, string> = {
                       :class="currentPlan === 'installment' ? 'border-2 border-violet-500 bg-violet-50 dark:bg-violet-950' : 'border-gray-200 dark:border-gray-700'"
                       @click="currentPlan = 'installment'"
                     >
-                      <div class="text-xs font-medium text-gray-800 dark:text-gray-200">Installment</div>
+                      <div class="text-xs font-medium text-gray-800 dark:text-gray-200">Swift Capital</div>
                       <div class="text-[11px] text-gray-400 mt-0.5">30% — {{ fmt(Math.round(currentPkg.price * 0.3)) }}</div>
                     </div>
                   </div>
@@ -365,7 +349,7 @@ const methodLabels: Record<string, string> = {
                   <div class="text-[11px] text-gray-400 uppercase tracking-wide mb-2">Pay with</div>
                   <div class="space-y-2">
                     <div
-                      v-for="m in ['mpamba', 'airtel', 'visa']"
+                      v-for="m in ['Swift Capital', 'VISA']"
                       :key="m"
                       class="flex items-center gap-3 border rounded-lg px-4 py-3 cursor-pointer transition-all"
                       :class="currentMethod === m ? 'border-2 border-violet-500' : 'border-gray-200 dark:border-gray-700'"
@@ -501,6 +485,7 @@ const methodLabels: Record<string, string> = {
 
             </div>
           </div>
+          
         </Transition>
       </Teleport>
 
