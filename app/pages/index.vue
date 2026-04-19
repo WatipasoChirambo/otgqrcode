@@ -186,12 +186,13 @@ const methodLabels: Record<string, string> = {
 
               <!-- CTA -->
               <div class="flex flex-wrap gap-3 mt-6">
-                <button
+
+                <a href="#products""
                   class="px-5 py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90 transition">
                   Browse Systems
-                </button>
+                </a>
 
-                <a href="https://wa.me/265995441381" target="_blank"
+                <a href="https://wa.me/tel:+0886616931" target="_blank"
                   class="px-5 py-3 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
                   Talk to Sales
                 </a>
@@ -199,6 +200,9 @@ const methodLabels: Record<string, string> = {
             </div>
 
             <!-- Right visual -->
+             <div>
+              
+             </div>
             <div class="flex-1 flex justify-center lg:justify-end">
               <div class="grid grid-cols-2 gap-3 max-w-xs">
 
@@ -234,7 +238,8 @@ const methodLabels: Record<string, string> = {
         </div>
 
         <!-- Product grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+         <p class="font-bold text-2xl">Products</p>
+        <div id="products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           <div v-for="pkg in products" :key="pkg.kva"
             class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 flex flex-col overflow-hidden">
             <!-- Product image area -->
@@ -406,7 +411,7 @@ const methodLabels: Record<string, string> = {
                   <strong>{{ methodLabels[currentMethod!] }}</strong>.<br /><br />
                   Our team will contact you within 24 hours to confirm your delivery.
                 </div>
-                <a href="https://wa.me/265995441381" target="_blank"
+                <a href="https://wa.me/265886616931" target="_blank"
                   class="inline-flex items-center gap-2 mt-1 bg-green-500 text-white text-sm px-5 py-2.5 rounded-full hover:bg-green-600 transition-colors no-underline">
                   Chat on WhatsApp
                 </a>
