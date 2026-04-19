@@ -133,20 +133,19 @@ const methodLabels: Record<string, string> = {
       <div class="p-6 space-y-6">
 
         <!-- Hero section -->
-         <!-- Hero -->
-                <div class="">
-                    <h1 class="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
-                        Clean Energy for
-                        <span class="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent">
-                            Modern Living
-                        </span>
-                    </h1>
+        <div class="">
+          <h1 class="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
+            Clean Energy for
+            <span class="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent">
+              Modern Living
+            </span>
+          </h1>
 
-                    <p class="mt-4 text-gray-500 max-w-xl">
-                        Reliable solar systems for homes and businesses in Malawi. Built for performance, designed for
-                        simplicity.
-                    </p>
-                </div>
+          <p class="mt-4 text-gray-500 max-w-xl">
+            Reliable solar systems for homes and businesses in Malawi. Built for performance, designed for
+            simplicity.
+          </p>
+        </div>
         <div
           class="relative overflow-hidden rounded-2xl border border-violet-100 dark:border-violet-900 bg-gradient-to-br from-violet-50 via-white to-violet-100 dark:from-violet-950 dark:via-gray-900 dark:to-violet-900 p-6 md:p-10">
 
@@ -188,7 +187,8 @@ const methodLabels: Record<string, string> = {
               <div class="flex flex-wrap gap-3 mt-6">
 
                 <a href="#products""
-                  class="px-5 py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90 transition">
+                  class=" px-5 py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90
+                  transition">
                   Browse Systems
                 </a>
 
@@ -200,9 +200,9 @@ const methodLabels: Record<string, string> = {
             </div>
 
             <!-- Right visual -->
-             <div>
-              
-             </div>
+            <div>
+
+            </div>
             <div class="flex-1 flex justify-center lg:justify-end">
               <div class="grid grid-cols-2 gap-3 max-w-xs">
 
@@ -238,7 +238,7 @@ const methodLabels: Record<string, string> = {
         </div>
 
         <!-- Product grid -->
-         <p class="font-bold text-2xl">Products</p>
+        <p class="font-bold text-2xl">Products</p>
         <div id="products" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           <div v-for="pkg in products" :key="pkg.kva"
             class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 flex flex-col overflow-hidden">
@@ -328,7 +328,7 @@ const methodLabels: Record<string, string> = {
                   </div>
                 </div>
 
-                <div>                 
+                <div>
                 </div>
 
                 <!-- Amount summary -->

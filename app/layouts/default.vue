@@ -6,7 +6,8 @@
         <img src="/logo.jpg" height="170px" width="170px" />
       </div>
 
-      <div>
+      <div class="flex gap-4 items-center">
+        <UColorModeSwitch style="width: 40px;" />
         <a href="tel:+0886616931"
           class="px-5 py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90 transition">
           Contact Sales
@@ -23,12 +24,10 @@
   <!-- Apple-style Footer -->
   <footer class="footer">
     <div class="footer-inner">
-
       <!-- Top: Brand + Nav columns -->
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="brand-mark">OTG</div>
-          <p class="brand-tagline">Ignite your future.</p>
+          <img src="/logo.jpg" alt="Product" class="w-24 h-24 mb-2 object-contain mt-4" />
         </div>
 
         <div class="footer-nav">

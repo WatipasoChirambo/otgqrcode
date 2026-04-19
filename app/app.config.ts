@@ -3,6 +3,10 @@ export default defineAppConfig({
     colors: {
       primary: 'green',
       neutral: 'zinc'
+    },
+     icons: {
+      light: 'i-ph-sun',
+      dark: 'i-ph-moon'
     }
   }
 })
