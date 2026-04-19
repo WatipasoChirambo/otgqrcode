@@ -132,24 +132,6 @@ const methodLabels: Record<string, string> = {
     <template #body>
       <div class="p-6 space-y-6">
 
-        <!-- Brand header -->
-        <div class="flex items-center justify-between flex-wrap gap-4">
-          <div class="flex items-center gap-3">
-            <div>
-              <img src="/logo.jpg" height="170px" width="170px" />
-            </div>
-            <div>
-              <UToggle />
-            </div>
-          </div>
-          <div class="flex text-xs items-center text-gray-400 gap-4">
-            <div class="flex gap-2">
-              <UColorModeSwitch />
-            </div>
-            <p>Blantyre · Lilongwe · Mzuzu · Karonga</p>
-          </div>
-        </div>
-
         <!-- Hero section -->
         <div
           class="relative overflow-hidden rounded-2xl border border-violet-100 dark:border-violet-900 bg-gradient-to-br from-violet-50 via-white to-violet-100 dark:from-violet-950 dark:via-gray-900 dark:to-violet-900 p-6 md:p-10">

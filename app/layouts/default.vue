@@ -1,6 +1,24 @@
 <template>
-  <nav></nav>
-  <slot />
+  <nav>
+    <!-- Header -->
+    <div class="flex items-center justify-between gap-4 max-w-7xl mx-auto py-4 px-6">
+      <div>
+        <img src="/logo.jpg" height="170px" width="170px" />
+      </div>
+
+      <div>
+        <a href="tel:+0886616931"
+          class="px-5 py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90 transition">
+          Contact Sales
+        </a>
+      </div>
+
+    </div>
+  </nav>
+  <div class="max-w-7xl mx-auto">
+    <slot />
+  </div>
+
 
   <!-- Apple-style Footer -->
   <footer class="footer">
@@ -61,12 +79,12 @@
 
 /* ── Root tokens ── */
 .footer {
-  --fg:       #1d1d1f;
+  --fg: #1d1d1f;
   --fg-muted: #6e6e73;
-  --fg-dim:   #aeaeb2;
-  --border:   #d2d2d7;
-  --accent:   #7c3aed;
-  --bg:       #f5f5f7;
+  --fg-dim: #aeaeb2;
+  --border: #d2d2d7;
+  --accent: #7c3aed;
+  --bg: #f5f5f7;
 
   background: var(--bg);
   border-top: 1px solid var(--border);
@@ -77,11 +95,11 @@
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
   .footer {
-    --fg:       #f5f5f7;
+    --fg: #f5f5f7;
     --fg-muted: #a1a1a6;
-    --fg-dim:   #6e6e73;
-    --border:   #3a3a3c;
-    --bg:       #161617;
+    --fg-dim: #6e6e73;
+    --border: #3a3a3c;
+    --bg: #161617;
   }
 }
 

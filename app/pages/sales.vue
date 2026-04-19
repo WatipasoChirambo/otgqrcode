@@ -68,22 +68,20 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
         <template #body>
             <div class="p-6 space-y-6">
 
-                <!-- Header -->
-                <div class="flex items-center justify-between gap-4">
-                    <div>
-                        <img src="/logo.jpg" height="170px" width="170px" />
-                    </div>
-
-                    <div>
-                        <a href="tel:+0886616931"
-                            class="px-5 py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90 transition">
-                            Contact Sales
-                        </a>
-                    </div>
-
-                </div>
-
                 <!-- Hero -->
+                <div class="">
+                    <h1 class="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
+                        Clean Energy for
+                        <span class="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent">
+                            Modern Living
+                        </span>
+                    </h1>
+
+                    <p class="mt-4 text-gray-500 max-w-xl">
+                        Reliable solar systems for homes and businesses in Malawi. Built for performance, designed for
+                        simplicity.
+                    </p>
+                </div>
                 <div
                     class="rounded-2xl p-6 bg-gradient-to-br from-violet-50 to-white dark:from-violet-950 dark:to-gray-900 border border-violet-100 dark:border-violet-900">
                     <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">
@@ -95,6 +93,9 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
                 </div>
 
                 <!-- Products -->
+                 <div>
+                    <h4 class="text-xl font-bold dark:text-white">Products</h4>
+                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     <div v-for="pkg in products" :key="pkg.kva"
                         class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-hidden flex flex-col">
