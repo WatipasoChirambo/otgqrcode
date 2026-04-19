@@ -133,6 +133,20 @@ const methodLabels: Record<string, string> = {
       <div class="p-6 space-y-6">
 
         <!-- Hero section -->
+         <!-- Hero -->
+                <div class="">
+                    <h1 class="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
+                        Clean Energy for
+                        <span class="bg-gradient-to-r from-violet-600 to-indigo-500 bg-clip-text text-transparent">
+                            Modern Living
+                        </span>
+                    </h1>
+
+                    <p class="mt-4 text-gray-500 max-w-xl">
+                        Reliable solar systems for homes and businesses in Malawi. Built for performance, designed for
+                        simplicity.
+                    </p>
+                </div>
         <div
           class="relative overflow-hidden rounded-2xl border border-violet-100 dark:border-violet-900 bg-gradient-to-br from-violet-50 via-white to-violet-100 dark:from-violet-950 dark:via-gray-900 dark:to-violet-900 p-6 md:p-10">
 
@@ -297,10 +311,7 @@ const methodLabels: Record<string, string> = {
                       <div class="text-xs font-medium text-gray-800 dark:text-gray-200">Full payment</div>
                       <div class="text-[11px] text-gray-400 mt-0.5">{{ fmt(currentPkg.price) }}</div>
                     </div>
-                    <a href="tel:+0886616931">
-                      class="border rounded-lg p-3 text-center transition-all text-sm font-medium text-white"
-                      :style="{ background: currentPlan === 'installment' ? '#1D9E75' : '#38A169' }"
-                      @click="currentPlan = 'installment'"
+                    <a href="https://swiftcapital.mw/personal-loan-application/" target="_blank">
                       <div class="border rounded-lg p-3 text-center cursor-pointer transition-all"
                         :class="currentPlan === 'installment' ? 'border-2 border-violet-500 bg-violet-50 dark:bg-violet-950' : 'border-gray-200 dark:border-gray-700'"
                         @click="currentPlan = 'installment'">
@@ -312,34 +323,7 @@ const methodLabels: Record<string, string> = {
                   </div>
                 </div>
 
-                <div>
-                  <div class="text-[11px] text-gray-400 uppercase tracking-wide mb-2">Pay with</div>
-                  <div class="space-y-2">
-                    <div v-for="m in ['Swift Capital', 'VISA']" :key="m"
-                      class="flex items-center gap-3 border rounded-lg px-4 py-3 cursor-pointer transition-all"
-                      :class="currentMethod === m ? 'border-2 border-violet-500' : 'border-gray-200 dark:border-gray-700'"
-                      @click="currentMethod = m as typeof currentMethod">
-                      <div class="w-10 h-6 rounded flex items-center justify-center text-[10px] font-medium shrink-0"
-                        :class="{
-                          'bg-red-600 text-red-50': m === 'Swift Capital',
-                          'bg-red-500 text-white': m === 'VISA',
-                        }">
-                        {{ m === 'Swift Capital' ? 'Swift Capital' : m === 'VISA' ? 'VISA' : 'VISA' }}
-                      </div>
-                      <div class="flex-1">
-                        <div class="text-sm font-medium text-gray-800 dark:text-gray-200">
-                          {{ m === 'Swift Capital' ? 'Swift Capital' : m === 'VISA' ? 'VISA' : 'VISA' }}
-                        </div>
-                        <div class="text-[11px] text-gray-400">
-                          {{ m === 'Swift Capital' ? 'Swift Capital' : m === 'VISA' ? 'VISA' : 'VISA' }}
-                        </div>
-                      </div>
-                      <div class="w-4 h-4 rounded-full border flex items-center justify-center shrink-0"
-                        :class="currentMethod === m ? 'bg-violet-600 border-violet-600' : 'border-gray-300 dark:border-gray-600'">
-                        <div v-if="currentMethod === m" class="w-1.5 h-1.5 rounded-full bg-white" />
-                      </div>
-                    </div>
-                  </div>
+                <div>                 
                 </div>
 
                 <!-- Amount summary -->
