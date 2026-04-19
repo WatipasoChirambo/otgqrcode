@@ -108,7 +108,7 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
                                 {{ pkg.tag }}
                             </span>
 
-                            <img src="/product.png" alt="Product" class="w-12 h-12 mb-2 object-contain" />
+                            <img src="/product.png" alt="Product" class="w-24 h-24 mb-2 object-contain mt-4" />
 
                             <div class="text-2xl font-semibold" :style="{ color: pkg.color }">
                                 {{ pkg.kva }} KVA
