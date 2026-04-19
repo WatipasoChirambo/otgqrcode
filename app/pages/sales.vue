@@ -66,12 +66,15 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
             <img src="/logo.jpg" height="170px" width="170px"/>
           </div>
 
-          <a
+          <div>
+            <a
             href="tel:+0886616931"
             class="px-5 py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90 transition"
           >
-            📞 Talk to Sales
+            📞 Sales
           </a>
+          </div>
+          
         </div>
 
         <!-- Hero -->
