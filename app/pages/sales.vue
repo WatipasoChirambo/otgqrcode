@@ -152,7 +152,7 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
                         Need help choosing the right system?
                     </div>
 
-                    <a href="tel:+0886616931"
+                    <a href="tel:+265886616931"
                         class="inline-block px-6 py-3 rounded-full bg-violet-600 text-white text-sm font-medium hover:opacity-90">
                         Call Now: +0886616931
                     </a>

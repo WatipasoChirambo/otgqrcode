@@ -8,7 +8,7 @@
 
       <div class="flex gap-4 items-center">
         <UColorModeSwitch style="width: 40px;" />
-        <a href="tel:+0886616931"
+        <a href="tel:+265886616931"
           class="px-5 py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90 transition">
           Call Us
         </a>

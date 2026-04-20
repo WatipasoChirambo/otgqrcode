@@ -192,7 +192,7 @@ const methodLabels: Record<string, string> = {
                   Browse Systems
                 </a>
 
-                <a href="https://wa.me/tel:+0886616931" target="_blank"
+                <a href="https://wa.me/tel:+265886616931" target="_blank"
                   class="px-5 py-3 rounded-lg border border-gray-200 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 transition">
                   Talk to Sales
                 </a>
