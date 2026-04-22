@@ -86,7 +86,7 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
                     <UCard class="bg-indigo-500 w-amx-4xl">
                     <div class="rounded-lg px-2.5 py-2 text-[10px] font-medium  flex items-start gap-1.5">
                     <span class="text-sm leading-none mt-0.5">🎁</span>
-                    <span class="leading-snug">
+                    <span class="leading-snug text-white">
                         Get a system &amp; receive a <strong>FREE Airtel 5G WiFi Airtel 5G WiFi</strong> with
                         <strong>2 months unlimited access</strong> — included!
                     </span>
