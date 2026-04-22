@@ -82,20 +82,22 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
                         simplicity.
                     </p>
                 </div>
-                <div
-                    class="rounded-2xl p-6 bg-gradient-to-br from-violet-50 to-white dark:from-violet-950 dark:to-gray-900 border border-violet-100 dark:border-violet-900">
-                    <h1 class="text-2xl font-semibold text-gray-900 dark:text-white">
-                        Reliable Solar Power for Every Home
-                    </h1>
-                    <p class="text-sm text-gray-500 mt-2">
-                        Browse systems below and call us instantly to order or get advice.
-                    </p>
+                <div class="w-max-4xl">
+                    <UCard class="bg-indigo-500 w-amx-4xl">
+                    <div class="rounded-lg px-2.5 py-2 text-[10px] font-medium  flex items-start gap-1.5">
+                    <span class="text-sm leading-none mt-0.5">🎁</span>
+                    <span class="leading-snug">
+                        Get a system &amp; receive a <strong>FREE Airtel 5G WiFi Airtel 5G WiFi</strong> with
+                        <strong>2 months unlimited access</strong> — included!
+                    </span>
+                </div>
+                </UCard>
                 </div>
 
                 <!-- Products -->
-                 <div>
+                <div>
                     <h4 class="text-xl font-bold dark:text-white">Products</h4>
-                 </div>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                     <div v-for="pkg in products" :key="pkg.kva"
                         class="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 overflow-hidden flex flex-col">
@@ -133,6 +135,16 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
 
                             <div class="text-sm font-medium text-gray-900 dark:text-white mt-1">
                                 {{ fmt(pkg.price) }}
+                            </div>
+
+                            <!-- Promo Banner -->
+                            <div class="rounded-lg px-2.5 py-2 text-[10px] font-medium text-white flex items-start gap-1.5"
+                                :style="{ background: pkg.color + 'ee' }">
+                                <span class="text-sm leading-none mt-0.5">🎁</span>
+                                <span class="leading-snug">
+                                    Get a system &amp; receive a <strong>FREE Airtel 5G WiFi</strong> with
+                                    <strong>2 months unlimited access</strong> — included!
+                                </span>
                             </div>
                         </div>
 
