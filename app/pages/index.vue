@@ -5,9 +5,17 @@ const { isNotificationsSlideoverOpen } = useDashboard()
 
 const products = [
   {
+    kva: 1,
+    price: 4900000,
+    desc: 'Ideal for homes, Powers lights, wifi, phone charging.',
+    specs: ['Lithium battery', 'Solar panels', 'MUST inverter', 'Installation kit'],
+    color: '#BA7517',
+    img: '/product.jpg',
+  },
+  {
     kva: 3,
     price: 8400000,
-    desc: 'Ideal for a small home. Powers lights, fans, phone charging, a TV and a small fridge.',
+    desc: 'Ideal for homes. Powers lights, fans, phone charging, a TV and a small fridge.',
     specs: ['Lithium battery', 'Solar panels', 'MUST inverter', 'Installation kit'],
     color: '#1D9E75',
     img: '/product.jpg',
@@ -31,7 +39,7 @@ const products = [
   },
   {
     kva: 12,
-    price: 17400000,
+    price: 22400000,
     desc: 'Large family home or small office. Supports air conditioning, computers and heavy appliances.',
     specs: ['LiFePO4 battery', 'Dual panel array', 'MUST inverter', 'Smart controller'],
     color: '#D85A30',
@@ -81,56 +89,18 @@ const fmt = (n: number) => 'MWK ' + n.toLocaleString()
 // Modal state
 const modalOpen = ref(false)
 const currentPkg = ref<(typeof products)[0] | null>(null)
-const currentPlan = ref<'cash' | 'swift'>('cash')
-const currentMethod = ref<'mpamba' | 'airtel' | 'visa'>('visa')
-const checkoutStep = ref<'select' | 'pay' | 'success'>('select')
-
-// Pay form fields
-const mobileNumber = ref('')
-const cardNumber = ref('')
-const cardExpiry = ref('')
-const cardCvv = ref('')
-const cardName = ref('')
+const currentPlan = ref<'call' | 'swift'>('call')
+const checkoutStep = ref<'select' | 'success'>('select')
 
 function openModal(pkg: (typeof products)[0]) {
   currentPkg.value = pkg
-  currentPlan.value = 'cash'
-  currentMethod.value = 'visa'
+  currentPlan.value = 'call'
   checkoutStep.value = 'select'
-  mobileNumber.value = ''
-  cardNumber.value = ''
-  cardExpiry.value = ''
-  cardCvv.value = ''
-  cardName.value = ''
   modalOpen.value = true
 }
 
 function closeModal() {
   modalOpen.value = false
-}
-
-function dueNow(pkg: (typeof products)[0]) {
-  return pkg.price
-}
-
-function proceedCheckout() {
-  checkoutStep.value = 'pay'
-}
-
-function confirmPayment() {
-  checkoutStep.value = 'success'
-}
-
-function formatCardInput(e: Event) {
-  const input = e.target as HTMLInputElement
-  const v = input.value.replace(/\D/g, '').substring(0, 16)
-  cardNumber.value = v.replace(/(.{4})/g, '$1 ').trim()
-}
-
-const methodLabels: Record<string, string> = {
-  mpamba: 'Mpamba (TNM)',
-  airtel: 'Airtel Money',
-  visa: 'Visa card',
 }
 </script>
 
@@ -259,13 +229,12 @@ const methodLabels: Record<string, string> = {
               <!-- Modal header -->
               <div class="flex items-center justify-between px-5 py-4 border-b border-gray-100 dark:border-gray-800 sticky top-0 bg-white dark:bg-gray-900 z-10">
                 <span class="text-sm font-medium text-gray-900 dark:text-white">
-                  <template v-if="checkoutStep === 'success'">Order confirmed</template>
-                  <template v-else>Buy {{ currentPkg?.kva }} KVA system</template>
+                  Buy {{ currentPkg?.kva }} KVA system
                 </span>
                 <button class="text-gray-400 hover:text-gray-600 text-lg leading-none px-1" @click="closeModal">✕</button>
               </div>
 
-              <!-- Step: select plan + method -->
+              <!-- Step: select plan -->
               <div v-if="checkoutStep === 'select' && currentPkg" class="p-5 space-y-4">
 
                 <!-- Product summary -->
@@ -278,14 +247,14 @@ const methodLabels: Record<string, string> = {
                 <div>
                   <div class="text-[11px] text-gray-400 uppercase tracking-wide mb-2">Payment plan</div>
                   <div class="grid grid-cols-2 gap-2">
-                    <!-- Cash -->
+                    <!-- Call to Order -->
                     <div
                       class="border rounded-lg p-3 text-center cursor-pointer transition-all"
-                      :class="currentPlan === 'cash' ? 'border-2 border-violet-500 bg-violet-50 dark:bg-violet-950' : 'border-gray-200 dark:border-gray-700'"
-                      @click="currentPlan = 'cash'">
-                      <div class="text-base mb-0.5">💵</div>
-                      <div class="text-xs font-medium text-gray-800 dark:text-gray-200">Cash / Card</div>
-                      <div class="text-[11px] text-gray-400 mt-0.5">Pay in full</div>
+                      :class="currentPlan === 'call' ? 'border-2 border-violet-500 bg-violet-50 dark:bg-violet-950' : 'border-gray-200 dark:border-gray-700'"
+                      @click="currentPlan = 'call'">
+                      <div class="text-base mb-0.5">📞</div>
+                      <div class="text-xs font-medium text-gray-800 dark:text-gray-200">Call to Order</div>
+                      <div class="text-[11px] text-gray-400 mt-0.5">Speak with sales</div>
                     </div>
                     <!-- Swift Capital -->
                     <div
@@ -319,109 +288,26 @@ const methodLabels: Record<string, string> = {
                   </p>
                 </div>
 
-                <!-- Cash: payment method -->
-                <div v-if="currentPlan === 'cash'">
-                  <div class="text-[11px] text-gray-400 uppercase tracking-wide mb-2">Payment method</div>
-                  <div class="grid grid-cols-3 gap-2">
-                    <div v-for="m in ['mpamba', 'airtel', 'visa']" :key="m"
-                      class="border rounded-lg p-2.5 text-center cursor-pointer transition-all"
-                      :class="currentMethod === m ? 'border-2 border-violet-500 bg-violet-50 dark:bg-violet-950' : 'border-gray-200 dark:border-gray-700'"
-                      @click="currentMethod = m as 'mpamba' | 'airtel' | 'visa'">
-                      <div class="text-base mb-0.5">{{ m === 'mpamba' ? '📱' : m === 'airtel' ? '📲' : '💳' }}</div>
-                      <div class="text-xs font-medium text-gray-700 dark:text-gray-300">
-                        {{ m === 'mpamba' ? 'Mpamba' : m === 'airtel' ? 'Airtel' : 'Visa' }}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Amount summary (cash only) -->
-                <div v-if="currentPlan === 'cash'" class="space-y-1 pt-1">
-                  <div class="flex justify-between text-xs text-gray-400">
-                    <span>System price</span><span>{{ fmt(currentPkg.price) }}</span>
-                  </div>
-                  <div class="flex justify-between text-sm font-medium text-gray-900 dark:text-white border-t border-gray-100 dark:border-gray-800 pt-2 mt-1">
-                    <span>Pay now</span><span>{{ fmt(dueNow(currentPkg)) }}</span>
-                  </div>
-                </div>
-
-                <button
-                  v-if="currentPlan === 'cash'"
-                  class="w-full py-3 rounded-lg text-sm font-medium transition-opacity bg-violet-600 text-white hover:opacity-90"
-                  @click="proceedCheckout">
-                  Continue to payment →
-                </button>
-              </div>
-
-              <!-- Step: pay -->
-              <div v-if="checkoutStep === 'pay' && currentPkg" class="p-5 space-y-4">
-                <div class="bg-gray-50 dark:bg-gray-800 rounded-lg px-4 py-3 flex justify-between items-center">
-                  <div class="text-sm font-medium text-gray-900 dark:text-white">{{ currentPkg.kva }} KVA — {{ fmt(dueNow(currentPkg)) }}</div>
-                  <div class="text-xs text-gray-400">Full payment</div>
-                </div>
-
-                <!-- Mobile money form -->
-                <template v-if="currentMethod === 'mpamba' || currentMethod === 'airtel'">
-                  <div>
-                    <label class="text-xs text-gray-400 block mb-1">Mobile number</label>
-                    <input v-model="mobileNumber" :placeholder="currentMethod === 'mpamba' ? 'e.g. 0991234567' : 'e.g. 0881234567'"
-                      class="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:border-violet-500" />
-                    <p class="text-[11px] text-gray-400 mt-1">
-                      You will receive a prompt on your phone to confirm the payment of {{ fmt(dueNow(currentPkg)) }}.
+                <!-- Call to Order CTA -->
+                <div v-if="currentPlan === 'call'" class="space-y-3">
+                  <div class="bg-violet-50 dark:bg-violet-950 border border-violet-100 dark:border-violet-900 rounded-lg px-4 py-3 text-center">
+                    <p class="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                      Call us to place your order for the <strong class="text-gray-800 dark:text-gray-200">{{ currentPkg.kva }} KVA system</strong>. Our sales team will guide you through the process and arrange delivery.
                     </p>
                   </div>
-                </template>
-
-                <!-- Visa card form -->
-                <template v-if="currentMethod === 'visa'">
-                  <div class="space-y-3">
-                    <div>
-                      <label class="text-xs text-gray-400 block mb-1">Card number</label>
-                      <input :value="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19"
-                        class="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:border-violet-500"
-                        @input="formatCardInput" />
-                    </div>
-                    <div class="grid grid-cols-2 gap-3">
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">Expiry</label>
-                        <input v-model="cardExpiry" placeholder="MM / YY" maxlength="7"
-                          class="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:border-violet-500" />
-                      </div>
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">CVV</label>
-                        <input v-model="cardCvv" placeholder="123" maxlength="3" type="password"
-                          class="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:border-violet-500" />
-                      </div>
-                    </div>
-                    <div>
-                      <label class="text-xs text-gray-400 block mb-1">Name on card</label>
-                      <input v-model="cardName" placeholder="Full name"
-                        class="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:border-violet-500" />
-                    </div>
-                  </div>
-                </template>
-
-                <button
-                  class="w-full py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90 transition-opacity"
-                  @click="confirmPayment">
-                  Confirm — {{ fmt(dueNow(currentPkg)) }}
-                </button>
-              </div>
-
-              <!-- Step: success -->
-              <div v-if="checkoutStep === 'success' && currentPkg" class="p-6 text-center space-y-3">
-                <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mx-auto text-green-600 dark:text-green-300 text-xl">✓</div>
-                <div class="text-base font-medium text-gray-900 dark:text-white">Payment initiated!</div>
-                <div class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
-                  Your <strong>{{ currentPkg.kva }} KVA solar system</strong> order has been received.<br />
-                  <strong>{{ fmt(dueNow(currentPkg)) }}</strong> will be processed via
-                  <strong>{{ methodLabels[currentMethod] }}</strong>.<br /><br />
-                  Our team will contact you within 24 hours to confirm your delivery.
+                  <a
+                    href="tel:+265886616931"
+                    class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-violet-600 text-white text-sm font-medium hover:opacity-90 transition-opacity no-underline">
+                    📞 Call Now: +265886616931
+                  </a>
+                  <a
+                    href="https://wa.me/265886616931"
+                    target="_blank"
+                    class="flex items-center justify-center gap-2 w-full py-3 rounded-lg bg-green-500 text-white text-sm font-medium hover:opacity-90 transition-opacity no-underline">
+                    💬 WhatsApp Instead
+                  </a>
                 </div>
-                <a href="https://wa.me/265886616931" target="_blank"
-                  class="inline-flex items-center gap-2 mt-1 bg-green-500 text-white text-sm px-5 py-2.5 rounded-full hover:bg-green-600 transition-colors no-underline">
-                  Chat on WhatsApp
-                </a>
+
               </div>
 
             </div>
