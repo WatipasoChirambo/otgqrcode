@@ -1,9 +1,17 @@
 <script setup lang="ts">
 const products = [
+    {
+    kva: 1,
+    price: 4900000,
+    desc: 'Ideal for homes, Powers lights, wifi, phone charging.',
+    specs: ['Lithium battery', 'Solar panels', 'MUST inverter', 'Installation kit'],
+    color: '#BA7517',
+    img: '/product.jpg',
+  },
   {
     kva: 3,
     price: 8400000,
-    desc: 'Ideal for a small home. Powers lights, fans, phone charging, a TV and a small fridge.',
+    desc: 'Ideal for homes. Powers lights, fans, phone charging, a TV and a small fridge.',
     specs: ['Lithium battery', 'Solar panels', 'MUST inverter', 'Installation kit'],
     color: '#1D9E75',
     img: '/product.jpg',
