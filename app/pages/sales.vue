@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const products = [
-    {
+  {
     kva: 1,
     price: 4900000,
     desc: 'Ideal for homes, Powers lights, wifi, phone charging.',
@@ -10,7 +10,7 @@ const products = [
   },
   {
     kva: 3,
-    price: 8400000,
+    price: 8200000,
     desc: 'Ideal for homes. Powers lights, fans, phone charging, a TV and a small fridge.',
     specs: ['Lithium battery', 'Solar panels', 'MUST inverter', 'Installation kit'],
     color: '#1D9E75',
@@ -18,7 +18,7 @@ const products = [
   },
   {
     kva: 5,
-    price: 10450000,
+    price: 10200000,
     desc: 'Perfect for a medium home. Handles lighting, entertainment, fridge and a small water pump.',
     specs: ['Lithium battery', 'Solar panels', 'MUST inverter', 'MPPT controller'],
     color: '#378ADD',
@@ -26,7 +26,7 @@ const products = [
   },
   {
     kva: 6,
-    price: 11400000,
+    price: 11200000,
     tag: 'Most popular',
     desc: 'Our best-seller. Comfortably runs a full household — fridge, TV, lights, fans and more.',
     specs: ['LiFePO4 battery', 'High-yield panels', 'MUST inverter', 'MPPT controller'],
@@ -35,7 +35,7 @@ const products = [
   },
   {
     kva: 12,
-    price: 17400000,
+    price: 224300000,
     desc: 'Large family home or small office. Supports air conditioning, computers and heavy appliances.',
     specs: ['LiFePO4 battery', 'Dual panel array', 'MUST inverter', 'Smart controller'],
     color: '#D85A30',
