@@ -35,7 +35,7 @@ const products = [
   },
   {
     kva: 12,
-    price: 224300000,
+    price: 22300000,
     desc: 'Large family home or small office. Supports air conditioning, computers and heavy appliances.',
     specs: ['LiFePO4 battery', 'Dual panel array', 'MUST inverter', 'Smart controller'],
     color: '#D85A30',
